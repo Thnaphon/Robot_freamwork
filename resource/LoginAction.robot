@@ -49,3 +49,15 @@ Submit Credentials Invalid
 Welcome Page Should Be Open
     Location Should Be    ${WELCOME URL}
     Title Should Be    Profile Page
+
+
+Login With Invalid Credentials Should Fail
+    [Arguments]    ${username}    ${password}
+    Input Username    ${username}
+    Input Password    ${password}
+    Submit Credentials Invalid
+    Login Should Have Failed
+
+Login Should Have Failed
+    Title Should Be    Me Live Code - Login
+    Location Should Be  ${ERROR URL} 
